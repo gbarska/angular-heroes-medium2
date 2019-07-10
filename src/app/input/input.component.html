@@ -1,0 +1,41 @@
+
+<div *ngIf="isFetching" class="alert alert-info">
+      <strong>Info!</strong> Enviando....
+ </div>
+    
+<div  *ngIf="!pickImage" class="row">
+    <form #inputForm="ngForm" (ngSubmit)="onSubmit(inputForm.value)">
+      <div class="clearfix">
+        <div class="d-flex justify-content-center m-md-4 float-md-left img-md" style="background:gray;">
+            <img class="cursor-pointer card-img-top rounded-circle align-items-center" (click)="onSelectImage()" [src]="imageService.getImagePath()+heroAvatar" alt="Card image cap">
+        </div>
+        
+        <div class="float-md-left w-md-75 mt-4 w-md-70">
+            <div *ngIf="editMode" class="form-group">
+                <label for="exampleFormControlInput1">Id</label>
+                <input type="text" class="form-control" id="id"  name="id" placeholder="Steve" [ngModel]="hero?.id">
+              </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">First name</label>
+          <input type="text" class="form-control" id="firstName"  name="firstName" placeholder="Steve" [ngModel]="hero?.firstName">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Last name</label>
+            <input type="text" class="form-control" id="lastName"  name="lastName" placeholder="Park" [ngModel]="hero?.lastName">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Super Hero name</label>
+            <input type="text" class="form-control" id="superHeroName" name="superHeroName" placeholder="Superman"  [ngModel]="hero?.superHeroName">     </div>
+      </div>
+    </div>
+      <div class="form-group ml-md-4">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control" id="description"  name="description" rows="3" [ngModel]="hero?.description"></textarea>
+          <button class="btn btn-primary mt-4">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="pickImage">
+      <app-gallery></app-gallery>
+    </div>
+  

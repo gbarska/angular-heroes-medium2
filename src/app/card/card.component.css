@@ -1,0 +1,17 @@
+.hero-card{
+    width: 300px;
+}
+
+.img-background{
+    margin: 10px;
+    height: 200px;
+    width: 220px;
+}
+
+.hero-name{
+ margin: 0;
+}
+
+.img-fundo{
+    background:gray;
+}
